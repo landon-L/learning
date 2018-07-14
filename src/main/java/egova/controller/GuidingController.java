@@ -71,9 +71,6 @@ public class GuidingController {
         Map<String,String> data = new HashMap<>();
         data.put("userName", userName);
         data.put("password", MD5Utils.md5(password));
-        // TODO: 2018/7/6 测试是否需要设置header
-//        Map<String,String> header = new HashMap<>();
-//        header.put("Content-Type", "application/x-www-form-urlencoded");
         String jsonStr = HttpClientExtraUtils.post(url + Constants.GUDING_TOKEN,null, data).getResult();
         //解析获取的token
         if (StringUtils.isEmpty(jsonStr)) {
